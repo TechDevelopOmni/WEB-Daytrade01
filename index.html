@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <title>Silicon | Multipurpose Business / Technology Template</title>
+
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Silicon - Multipurpose Technology Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, creative agency, construction, services, e-commerce, shopping cart, mobile app showcase, multipurpose, shop, ui kit, marketing, seo, landing, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Theme switcher (color modes) -->
+    <script src="assets/js/theme-switcher.js"></script>
+
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      [data-bs-theme="dark"] .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      [data-bs-theme="dark"] .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      [data-bs-theme="dark"] .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .daytrade-feature-card {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        min-height: 720px;
+        overflow: hidden;
+        border-radius: 1.25rem;
+        color: #fff;
+        text-decoration: none;
+        box-shadow: 0 1rem 2.5rem rgba(11, 15, 25, .16);
+        isolation: isolate;
+      }
+      .daytrade-feature-card::before,
+      .daytrade-feature-card::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+      }
+      .daytrade-feature-card::before {
+        z-index: -2;
+        background-image: var(--card-image);
+        background-position: center;
+        background-size: cover;
+        transition: transform .35s ease;
+      }
+      .daytrade-feature-card::after {
+        z-index: -1;
+        background:
+          linear-gradient(180deg, rgba(0, 16, 38, .25) 0%, rgba(0, 16, 38, .78) 79%, rgba(0, 13, 30, .95) 150%),
+          linear-gradient(90deg, rgba(0, 24, 54, .86) 0%, rgba(0, 24, 54, .34) 18%);
+      }
+      .daytrade-feature-card:hover,
+      .daytrade-feature-card:focus {
+        color: #fff;
+      }
+      .daytrade-feature-card:hover::before,
+      .daytrade-feature-card:focus::before {
+        transform: scale(1.06);
+      }
+      .daytrade-feature-card__content {
+        width: 100%;
+        padding: 2rem;
+      }
+      .daytrade-feature-card__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 1.25rem;
+        border: 1px solid rgba(255, 255, 255, .72);
+        border-radius: .85rem;
+        font-size: 1.75rem;
+        color: #fff;
+      }
+      .daytrade-feature-card__text {
+        max-width: 18rem;
+        color: rgba(255, 255, 255, .86);
+      }
+      .daytrade-feature-card__link {
+        display: inline-flex;
+        align-items: center;
+        gap: .35rem;
+        margin-top: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .daytrade-sector-panel {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        height: 350px;
+        max-height: 350px;
+        overflow: hidden;
+        border-radius: 1.25rem;
+        color: #fff;
+        box-shadow: 0 1rem 2.5rem rgba(11, 15, 25, .16);
+        isolation: isolate;
+      }
+      .daytrade-sector-panel::before,
+      .daytrade-sector-panel::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+      }
+      .daytrade-sector-panel::before {
+        z-index: -2;
+        background-image: var(--sector-image);
+        background-position: center;
+        background-size: cover;
+      }
+      .daytrade-sector-panel::after {
+        z-index: -1;
+        background:
+          linear-gradient(180deg, rgba(0, 16, 38, .08) 0%, rgba(0, 16, 38, .7) 54%, rgba(0, 13, 30, .96) 100%),
+          linear-gradient(90deg, rgba(0, 24, 54, .9) 0%, rgba(0, 24, 54, .34) 100%);
+      }
+      .daytrade-sector-panel__content {
+        max-width: 38rem;
+        padding: 2rem;
+      }
+      .daytrade-sector-panel__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 1.25rem;
+        border: 1px solid rgba(255, 255, 255, .72);
+        border-radius: .85rem;
+        font-size: 1.75rem;
+        color: #fff;
+      }
+      .daytrade-sector-panel__text {
+        max-width: 32rem;
+        color: rgba(255, 255, 255, .86);
+      }
+      .daytrade-highlight-check {
+        color: #acd446 !important;
+      }
+      .daytrade-highlight-text {
+        color: #003e8f !important;
+      }
+      .principaissetores {
+        background-color: ghostwhite;
+        padding-top: 7%;
+        /* border-bottom: solid;
+        border-block: solid;
+        border-block-color: #003e8f;
+        border-bottom-color: #acd446; */
+      }
+      .daytrade-sector-tabs {
+        border-bottom: 0;
+        gap: 1rem;
+      }
+      .daytrade-sector-tabs .nav-link {
+        border: 1px solid rgba(0, 62, 143, .08);
+        border-radius: .5rem;
+        background-color: rgba(0, 62, 143, .04);
+        color: #003e8f;
+        font-weight: 700;
+        transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+      }
+      .daytrade-sector-tabs .nav-link i {
+        color: inherit;
+        opacity: 1 !important;
+      }
+      .daytrade-sector-tabs .nav-link:hover,
+      .daytrade-sector-tabs .nav-link:focus {
+        border-color: #acd446;
+        background-color: #acd446;
+        color: #003e8f;
+        box-shadow: 0 .5rem 1.25rem rgba(172, 212, 70, .24);
+      }
+      .daytrade-sector-tabs .nav-link.active,
+      .daytrade-sector-tabs .nav-link[aria-selected="true"] {
+        border-color: #003e8f;
+        background-color: #003e8f;
+        color: #fff;
+        box-shadow: 0 .5rem 1.25rem rgba(0, 62, 143, .24);
+      }
+      #faq .accordion-button:not(.collapsed) {
+        background-color: #acd446;
+        color: #003e8f;
+      }
+      #faq .accordion-button:not(.collapsed)::after {
+        filter: brightness(0) saturate(100%) invert(20%) sepia(98%) saturate(1888%) hue-rotate(198deg) brightness(82%) contrast(102%);
+      }
+      .btn-video {
+        --si-btn-video-hover-bg: #acd446;
+      }
+      .daytrade-hero {
+        min-height: calc(100vh - 6rem);
+        background-size: cover;
+        background-position: center 46%;
+      }
+      .daytrade-hero-title {
+        text-wrap: balance;
+        text-wrap-style: balance;
+      }
+      @media (max-width: 1399.98px) {
+        .daytrade-hero {
+          background-position: center 44%;
+        }
+      }
+      @media (max-width: 1199.98px) {
+        .daytrade-hero {
+          background-position: 58% 44%;
+        }
+      }
+      @media (max-width: 991.98px) {
+        .daytrade-hero {
+          background-position: 62% center;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .daytrade-hero {
+          min-height: 820px;
+          background-image: url(assets/img/brands/mobile.png) !important;
+          background-position: center top;
+        }
+        .hero-radial-overlay::before {
+          display: none;
+        }
+        .daytrade-hero > .container {
+          min-height: 820px;
+          display: flex;
+          align-items: flex-end;
+          padding-top: 18rem;
+          padding-bottom: 4.5rem;
+        }
+        .daytrade-hero-content {
+          padding-top: 0 !important;
+        }
+        .daytrade-hero-title {
+          margin-bottom: 2rem !important;
+        }
+        .daytrade-hero-subtitle {
+          padding-top: 0 !important;
+          margin-top: 0 !important;
+        }
+      }
+    </style>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+      <!-- Navbar -->
+      <!-- Remove "fixed-top" / "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg bg-light shadow-sm fixed-top">
+        <div class="container px-3">
+          <a href="index.html" class="navbar-brand pe-3">
+            <img src="assets/img/brands/logodayblue.png" height="42" alt="DaytradeInvest">
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Inicio</a></li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">DaytradeInvest</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="sobre-nos.html" class="dropdown-item">sobre nós</a></li>
+                    <li><a href="parceiro-indicador.html" class="dropdown-item">parceiro Indicador</a></li>
+                    <li><a href="area-do-cliente.html" class="dropdown-item">Area Do Cliente</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Setores</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="industria.html" class="dropdown-item">Indústria</a></li>
+                    <li><a href="construtora.html" class="dropdown-item">Construtora</a></li>
+                    <li><a href="agronegocio.html" class="dropdown-item">Agronegocio</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a href="portifolio.html" class="nav-link">Portifolio</a></li>
+                <li class="nav-item"><a href="carreira.html" class="nav-link">Carreira</a></li>
+                <li class="nav-item"><a href="investimento.html" class="nav-link">Investimento</a></li>
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="contato.html" class="btn btn-primary w-100">Contato</a>
+            </div>
+          </div>
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="contato.html" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex">Contato</a>
+        </div>
+      </header>
+
+
+ <!-- Hero section -->
+      <section class="min-vh-100 daytrade-hero bg-dark bg-repeat-0 position-relative overflow-hidden py-5 mb-5 hero-radial-overlay" style="background-image: url(assets/img/brands/efeito.png);border-bottom: solid; border-bottom-color: #acd446;" data-bs-theme="dark">
+        <div class="container pt-lg-3">
+          <div class="row flex-lg-nowrap">
+            <div class="col-lg-7 col-xl-6 col-xxl-7 text-center text-lg-start pt-4 pt-md-5 mt-xxl-4 daytrade-hero-content">
+              <h1 class="display-3 pb-md-2 mb-5 daytrade-hero-title">Capital inteligente para empresas em crescimento</h1>
+              <p class="text-body lead pt-5 mt-sm-2 mt-lg-4 mt-xl-5 daytrade-hero-subtitle">Impulsione sua operação com soluções sob medida em crédito estruturado e antecipação, preservando o capital de giro da sua empresa.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dados e Video -->
+       
+      <section class="container py-5 my-md-2 my-lg-4 my-xl-5">
+
+        <!-- Text -->
+        <h2 class="h1 text-center mx-auto mt-n2 mt-sm-0 pt-md-2" style="max-width: 620px;">Gerando oportunides para empresas</h2>
+        <ul class="list-unstyled d-flex flex-wrap justify-content-center mb-5">
+          <li class="d-flex fs-xl mx-3 mt-2 mt-sm-3">
+            <i class="bx bx-check lead daytrade-highlight-check mt-1 me-2"></i>
+            <span>Soluções de crédito <strong class="daytrade-highlight-text ms-1">inteligentes para empresas</strong></span>
+          </li>
+          <li class="d-flex fs-xl mx-3 mt-2 mt-sm-3">
+            <i class="bx bx-check lead daytrade-highlight-check mt-1 me-2"></i>
+            <span>Antecipação de recebíveis: <strong class="daytrade-highlight-text ms-1">cheques, duplicatas e contratos</strong></span>
+          </li>
+          <li class="d-flex fs-xl mx-3 mt-2 mt-sm-3">
+            <i class="bx bx-check lead daytrade-highlight-check mt-1 me-2"></i>
+            <span>Linhas de crédito de até <strong class="daytrade-highlight-text ms-1">R$ 10 milhões</strong></span>
+          </li>
+          <li class="d-flex fs-xl mx-3 mt-2 mt-sm-3">
+            <i class="bx bx-check lead daytrade-highlight-check mt-1 me-2"></i>
+            <span>Investimentos com <strong class="daytrade-highlight-text mx-1">rentabilidade atrativa</strong> e alta liquidez</span>
+          </li>
+          <li class="d-flex fs-xl mx-3 mt-2 mt-sm-3">
+            <i class="bx bx-check lead daytrade-highlight-check mt-1 me-2"></i>
+            <span>Mais de <strong class="daytrade-highlight-text mx-1">400 empresas atendidas</strong></span>
+          </li>
+          <li class="d-flex fs-xl mx-3 mt-2 mt-sm-3">
+            <i class="bx bx-check lead daytrade-highlight-check mt-1 me-2"></i>
+            <span>Hot Money para <strong class="daytrade-highlight-text ms-1">necessidades imediatas de caixa</strong></span>
+          </li>
+        </ul>
+
+        <div class="position-relative bg-white bg-opacity-10 p-2 p-sm-3" style="border-radius: 20px;">
+            <div class="position-relative rounded-4 overflow-hidden">
+              <div class="position-absolute top-50 start-50 translate-middle zindex-2 text-center">
+                <a href="https://www.youtube.com/watch?v=CtikYxp_G6M&t=14s" class="btn btn-video btn-icon btn-xl bg-white stretched-link mb-2 mb-sm-4" data-bs-toggle="video" aria-label="Play video">
+                  <i class="bx bx-play"></i>
+                </a>
+                <div class="h6 fs-lg mb-0">Assista ao video</div>
+              </div>
+              <span class="position-absolute top-0 start-0 w-100 h-100 zindex-1 opacity-90" style="background: radial-gradient(circle, rgba(11,15,25,0) 0%, rgba(8,11,18,1) 70%);"></span>
+              <img src="assets/img/landing/app-showcase-3/video-cover.jpg" class="opacity-75" alt="Video cover">
+            </div>
+          </div>
+      </section>
+    
+      <!-- Principais Setores -->
+      <div class="container-fluid principaissetores">    
+        <section class="container pt-2 pt-lg-0 pb-5 mb-md-4 mb-lg-5">
+          <h2 class="h1 text-center pb-3 pb-lg-4">Principais Setores</h2>
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs daytrade-sector-tabs flex-nowrap justify-content-lg-center overflow-auto pb-2 mb-3 mb-lg-4" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link text-nowrap active" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab" aria-controls="education" aria-selected="true">
+                <i class="bx bx-cart-alt fs-lg opacity-60 me-2"></i>
+                Industria
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link text-nowrap" id="ecommerce-tab" data-bs-toggle="tab" data-bs-target="#ecommerce" type="button" role="tab" aria-controls="ecommerce" aria-selected="false">
+                <i class="bx bx-buildings fs-lg opacity-60 me-2"></i>
+                Construtora
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link text-nowrap" id="sports-tab" data-bs-toggle="tab" data-bs-target="#sports" type="button" role="tab" aria-controls="sports" aria-selected="false">
+                <i class="bx bx-spa fs-lg opacity-60 me-2"></i>
+                Agronegocio
+              </button>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+
+            <!-- Setor Industria -->
+            <div class="tab-pane fade show active" id="education" role="tabpanel" aria-labelledby="education-tab">
+              <div class="daytrade-sector-panel" style="--sector-image: url('assets/img/setores/factory-1632914146475-bfe6fa6b2a12.jpg');">
+                <div class="daytrade-sector-panel__content">
+                  <span class="daytrade-sector-panel__icon">
+                    <i class="bx bx-cog"></i>
+                  </span>
+                  <h3 class="h2 text-white mb-3">Indústria</h3>
+                  <p class="daytrade-sector-panel__text fs-lg mb-4">Soluções estruturadas para apoiar produção, estoque, fornecedores e ciclos de recebimento com mais previsibilidade financeira.</p>
+                  <a href="industria.html" class="btn btn-outline-light rounded-pill">Conheça o setor</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Setor Construtora -->
+            <div class="tab-pane fade" id="ecommerce" role="tabpanel" aria-labelledby="ecommerce-tab">
+              <div class="daytrade-sector-panel" style="--sector-image: url('assets/img/setores/construction-photo-1663050989555-f8d01ac54a27.jpg');">
+                <div class="daytrade-sector-panel__content">
+                  <span class="daytrade-sector-panel__icon">
+                    <i class="bx bx-buildings"></i>
+                  </span>
+                  <h3 class="h2 text-white mb-3">Construtora</h3>
+                  <p class="daytrade-sector-panel__text fs-lg mb-4">Capital e antecipação para obras, contratos, medições e fornecedores, ajudando a manter o ritmo financeiro do projeto.</p>
+                  <a href="construtora.html" class="btn btn-outline-light rounded-pill">Conheça o setor</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Setor Agronegocio -->
+            <div class="tab-pane fade" id="sports" role="tabpanel" aria-labelledby="sports-tab">
+              <div class="daytrade-sector-panel" style="--sector-image: url('assets/img/setores/premium_photo-1661964103886-3a76685bcca7.jpg');">
+                <div class="daytrade-sector-panel__content">
+                  <span class="daytrade-sector-panel__icon">
+                    <i class="bx bx-leaf"></i>
+                  </span>
+                  <h3 class="h2 text-white mb-3">Agronegocio</h3>
+                  <p class="daytrade-sector-panel__text fs-lg mb-4">Apoio financeiro para cadeias produtivas, compra de insumos, logística e recebíveis do campo ao mercado.</p>
+                  <a href="agronegocio.html" class="btn btn-outline-light rounded-pill">Conheça o setor</a>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ---------------------------------------------Cards aqui--------------------------------------- -->
+      <section class="container py-5 my-2 my-md-4">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <a href="area-do-cliente.html" class="daytrade-feature-card" style="--card-image: url('assets/img/cards/client-4445.jpg');">
+              <div class="daytrade-feature-card__content">
+                <span class="daytrade-feature-card__icon">
+                  <i class="bx bx-user"></i>
+                </span>
+                <h3 class="h4 text-white mb-3">Seja cliente</h3>
+                <p class="daytrade-feature-card__text mb-0">Acesse soluções financeiras para fortalecer o fluxo de caixa e acelerar a liquidez da sua empresa.</p>
+                <span class="daytrade-feature-card__link">Saiba mais <i class="bx bx-right-arrow-alt fs-5"></i></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a href="parceiro-indicador.html" class="daytrade-feature-card" style="--card-image: url('assets/img/cards/indicator.png');">
+              <div class="daytrade-feature-card__content">
+                <span class="daytrade-feature-card__icon">
+                  <i class="bx bx-briefcase-alt-2"></i>
+                </span>
+                <h3 class="h4 text-white mb-3">Seja parceiro</h3>
+                <p class="daytrade-feature-card__text mb-0">Indique empresas, amplie sua rede de relacionamento e gere novas oportunidades comerciais.</p>
+                <span class="daytrade-feature-card__link">Faça parte <i class="bx bx-right-arrow-alt fs-5"></i></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a href="investimento.html" class="daytrade-feature-card" style="--card-image: url('assets/img/cards/investidor.jpg');">
+              <div class="daytrade-feature-card__content">
+                <span class="daytrade-feature-card__icon">
+                  <i class="bx bx-line-chart"></i>
+                </span>
+                <h3 class="h4 text-white mb-3">Invista</h3>
+                <p class="daytrade-feature-card__text mb-0">Conheça alternativas para investir em operações estruturadas com visão estratégica e acompanhamento próximo.</p>
+                <span class="daytrade-feature-card__link">Ver investimentos <i class="bx bx-right-arrow-alt fs-5"></i></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    <!-- ---------------------------------------------CTA PBF--------------------------------------- -->
+      <section class="container" style="padding-bottom: 7%;">
+        <div class="card bg-white border-primary shadow-sm px-4 px-lg-0" data-bs-theme="light">
+          <div class="row align-items-center py-3">
+            <div class="col-xl-5 col-md-6 offset-lg-1 text-center text-md-start py-4 py-lg-5">
+              <h2 class="h1">Conheça o Programa de beneficio ao fornecedor</h2>
+              <h3 class="h4 text-primary">Amplie a oferta de crédito para seus fornecedores</h3>
+              <p class="mb-4 mb-lg-5">Tenha uma estratégia de funding de acordo com seus objetivos.</p>
+              <a href="#" class="btn btn-primary">Saiba mais</a>
+
+                <div class="pt-5 mt-xl-5">
+                <h6 class="pt-xl-3 pb-3 pb-lg-4">Companias que utilizam nosso programa</h6>
+                <div class="d-flex justify-content-center justify-content-lg-start mx-xl-n2">
+                  <a href="#" class="d-block me-2">
+                    <img src="assets/img/brands/07.svg" width="135" alt="Logo">
+                  </a>
+                  <a href="#" class="d-block me-2">
+                    <img src="assets/img/brands/04.svg" width="135" alt="Logo">
+                  </a>
+                  <a href="#" class="d-block me-2">
+                    <img src="assets/img/brands/02.svg" width="135" alt="Logo">
+                  </a>
+                  <a href="#" class="d-block me-2">
+                    <img src="assets/img/brands/05.svg" width="135" alt="Logo">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-5 col-md-6">
+              <lottie-player class="mx-auto" src="assets/json/animation-financial-landing.json" background="transparent" speed="1" loop autoplay style="max-width: 416px;"></lottie-player>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- ---------------------------------------------Restante--------------------------------------- -->
+   <!-- FAQ -->
+      <section class="bg-secondary py-5">
+        <div class="container my-2 py-md-2 py-lg-5">
+          <div class="row">
+            <div class="col-xl-4 col-md-5 text-center text-md-start pb-2 pb-md-0 mb-4 mb-md-0">
+              <h2 class="pb-3 mb-1 mb-lg-2">Dúvidas frequentes sobre a Daytrade</h2>
+              <p class="fs-lg pb-3 mb-2 mb-lg-3">Entenda como funcionam as soluções de crédito, antecipação e investimento.</p>
+              <a href="contato.html" class="btn btn-primary">Fale com um especialista</a>
+            </div>
+            <div class="col-md-7 offset-xl-1">
+              <div class="accordion" id="faq">
+                <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                  <h2 class="accordion-header" id="q1-heading">
+                    <button class="accordion-button shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#q1" aria-expanded="true" aria-controls="q1">
+                      O que a Daytrade faz?
+                    </button>
+                  </h2>
+                  <div id="q1" class="accordion-collapse collapse show" aria-labelledby="q1-heading" data-bs-parent="#faq">
+                    <div class="accordion-body fs-sm pt-0">
+                      <p class="mb-0">A Daytrade atua como fintech de crédito e securitizadora, oferecendo soluções financeiras para empresas brasileiras, com foco em antecipação de recebíveis, crédito estruturado, investimentos, câmbio e conta digital.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                  <h2 class="accordion-header" id="q2-heading">
+                    <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">
+                      Como funciona a antecipação de recebíveis?
+                    </button>
+                  </h2>
+                  <div id="q2" class="accordion-collapse collapse" aria-labelledby="q2-heading" data-bs-parent="#faq">
+                    <div class="accordion-body fs-sm pt-0">
+                      <p class="mb-0">A empresa vende a prazo, envia a operação para análise e pode antecipar valores de duplicatas, cheques ou outros recebíveis. A ideia é transformar vendas futuras em caixa disponível, de forma simples, ágil e 100% online, sempre sujeita à análise de crédito.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                  <h2 class="accordion-header" id="q3-heading">
+                    <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3" aria-expanded="false" aria-controls="q3">
+                      Em quanto tempo o crédito pode ser liberado?
+                    </button>
+                  </h2>
+                  <div id="q3" class="accordion-collapse collapse" aria-labelledby="q3-heading" data-bs-parent="#faq">
+                    <div class="accordion-body fs-sm pt-0">
+                      <p class="mb-0">Segundo a Daytrade, após a análise dos títulos, a simulação é enviada para aprovação com taxas e valores. Com o aceite da empresa, os valores podem ser liberados em até 30 minutos.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                  <h2 class="accordion-header" id="q4-heading">
+                    <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4" aria-expanded="false" aria-controls="q4">
+                      Quais soluções a Daytrade oferece?
+                    </button>
+                  </h2>
+                  <div id="q4" class="accordion-collapse collapse" aria-labelledby="q4-heading" data-bs-parent="#faq">
+                    <div class="accordion-body fs-sm pt-0">
+                      <p class="mb-0">O portfólio inclui antecipação de recebíveis, crédito para construtoras, antecipação de contratos de aluguel, adiantamento para matéria-prima, crédito segurado, operações vendor, conta escrow, intercompany, câmbio e âncora multi-cedente/supply chain.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                  <h2 class="accordion-header" id="q5-heading">
+                    <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5" aria-expanded="false" aria-controls="q5">
+                      Como envio uma operação para análise?
+                    </button>
+                  </h2>
+                  <div id="q5" class="accordion-collapse collapse" aria-labelledby="q5-heading" data-bs-parent="#faq">
+                    <div class="accordion-body fs-sm pt-0">
+                      <p class="mb-0">A Daytrade informa que disponibiliza vários canais para envio de operações, incluindo sistema, WhatsApp e e-mail, além de aceitar diferentes tipos de arquivos para facilitar o processo.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0 rounded-3 shadow-sm">
+                  <h2 class="accordion-header" id="q6-heading">
+                    <button class="accordion-button shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6" aria-expanded="false" aria-controls="q6">
+                      A Daytrade também atende investidores?
+                    </button>
+                  </h2>
+                  <div id="q6" class="accordion-collapse collapse" aria-labelledby="q6-heading" data-bs-parent="#faq">
+                    <div class="accordion-body fs-sm pt-0">
+                      <p class="mb-0">Sim. A empresa apresenta soluções para diversificação de investimentos, com foco em compra de recebíveis e ativos financeiros, buscando rentabilidade, liquidez e controle de risco por meio de operações caucionadas e monitoradas.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+ <!-- Parceiros (carousel on screens < 1100px) -->
+      <section class="container border-bottom-lg pt-sm-2">
+        <div class="swiper mx-n2" data-swiper-options='{
+          "slidesPerView": 2,
+          "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
+          },
+          "breakpoints": {
+            "500": {
+              "slidesPerView": 3,
+              "spaceBetween": 8
+            },
+            "650": {
+              "slidesPerView": 4,
+              "spaceBetween": 8
+            },
+            "850": {
+              "slidesPerView": 5,
+              "spaceBetween": 8
+            },
+            "992": {
+              "slidesPerView": 6,
+              "spaceBetween": 8
+            }
+          }
+        }'>
+          <div class="swiper-wrapper">
+
+            <!-- Item -->
+            <div class="swiper-slide py-2">
+              <a href="#" class="px-2 mx-2">
+                <img src="assets/img/brands/01.svg" class="d-block mx-auto my-2" width="155" alt="Brand">
+              </a>
+            </div>
+
+            <!-- Item -->
+            <div class="swiper-slide py-2">
+              <a href="#" class="px-2 mx-2">
+                <img src="assets/img/brands/02.svg" class="d-block mx-auto my-2" width="155" alt="Brand">
+              </a>
+            </div>
+
+            <!-- Item -->
+            <div class="swiper-slide py-2">
+              <a href="#" class="px-2 mx-2">
+                <img src="assets/img/brands/03.svg" class="d-block mx-auto my-2" width="155" alt="Brand">
+              </a>
+            </div>
+
+            <!-- Item -->
+            <div class="swiper-slide py-2">
+              <a href="#" class="px-2 mx-2">
+                <img src="assets/img/brands/04.svg" class="d-block mx-auto my-2" width="155" alt="Brand">
+              </a>
+            </div>
+
+            <!-- Item -->
+            <div class="swiper-slide py-2">
+              <a href="#" class="px-2 mx-2">
+                <img src="assets/img/brands/05.svg" class="d-block mx-auto my-2" width="155" alt="Brand">
+              </a>
+            </div>
+
+            <!-- Item -->
+            <div class="swiper-slide py-2">
+              <a href="#" class="px-2 mx-2">
+                <img src="assets/img/brands/06.svg" class="d-block mx-auto my-2" width="155" alt="Brand">
+              </a>
+            </div>
+          </div>
+
+          <!-- Pagination (bullets) -->
+          <div class="swiper-pagination position-relative pt-3"></div>
+        </div>
+      </section>
+    <!-- ---------------------------------------------Footer--------------------------------------- -->
+    <!-- Footer -->
+    <footer class="footer bg-dark border-top border-light pt-5 pb-4 pb-lg-5" data-bs-theme="dark">
+      <div class="container pt-lg-4">
+        <div class="row pb-5">
+          <div class="col-lg-4 col-md-6">
+            <a href="index.html" class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+              <img src="assets/img/brands/logodaywhite.png" height="42" alt="DaytradeInvest">
+            </a>
+            <div class="fs-sm text-light opacity-70 pb-2 mb-3">
+              <p class="mb-2"><strong>CNPJ:</strong> 29.270.075/0001-74</p>
+              <p class="mb-0">DAYTRADE INVEST SECURITIZADORA S/A</p>
+            </div>
+            <p class="fs-sm text-light opacity-70 pb-lg-3 mb-4">Conteúdo institucional, soluções de investimento e relacionamento para clientes e parceiros DaytradeInvest.</p>
+            <form class="needs-validation" novalidate>
+              <label for="footer-subscr-email" class="form-label">Receba nossa News Letter</label>
+              <div class="input-group">
+                <input type="email" id="footer-subscr-email" class="form-control rounded-start ps-5" placeholder="Seu e-mail" required>
+                <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
+                <div class="invalid-tooltip position-absolute top-100 start-0">Informe um e-mail válido.</div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-xl-7 col-lg-8 col-md-6 offset-xl-1 pt-4 pt-md-1 pt-lg-0">
+            <div id="footer-links" class="row">
+              <div class="col-lg-6 col-md-12">
+                <h6 class="mb-2">
+                  <a href="#useful-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Menu</a>
+                </h6>
+                <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <div class="row g-0">
+                    <div class="col-6 pe-3">
+                      <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                        <li class="nav-item"><a href="index.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Inicio</a></li>
+                        <li class="nav-item"><a href="sobre-nos.html" class="nav-link d-inline-block px-0 pt-1 pb-2">sobre nós</a></li>
+                        <li class="nav-item"><a href="parceiro-indicador.html" class="nav-link d-inline-block px-0 pt-1 pb-2">parceiro Indicador</a></li>
+                        <li class="nav-item"><a href="area-do-cliente.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Area Do Cliente</a></li>
+                        <li class="nav-item"><a href="industria.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Indústria</a></li>
+                        <li class="nav-item"><a href="construtora.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Construtora</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-6 ps-3">
+                      <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                        <li class="nav-item"><a href="agronegocio.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Agronegocio</a></li>
+                        <li class="nav-item"><a href="portifolio.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Portifolio</a></li>
+                        <li class="nav-item"><a href="carreira.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Carreira</a></li>
+                        <li class="nav-item"><a href="investimento.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Investimento</a></li>
+                        <li class="nav-item"><a href="contato.html" class="nav-link d-inline-block px-0 pt-1 pb-2">Contato</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 pt-2 pt-lg-0">
+                <h6 class="mb-2">
+                  <a href="#social-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Redes sociais</a>
+                </h6>
+                <div id="social-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <div class="d-flex gap-2 pt-2 pt-lg-1">
+                    <a href="#" class="btn btn-icon btn-secondary btn-facebook rounded-circle" aria-label="Facebook">
+                      <i class="bx bxl-facebook"></i>
+                    </a>
+                    <a href="#" class="btn btn-icon btn-secondary btn-instagram rounded-circle" aria-label="Instagram">
+                      <i class="bx bxl-instagram"></i>
+                    </a>
+                    <a href="#" class="btn btn-icon btn-secondary btn-linkedin rounded-circle" aria-label="LinkedIn">
+                      <i class="bx bxl-linkedin"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 pt-2 pt-lg-0">
+                <h6 class="mb-2">Contato</h6>
+                <ul class="nav flex-column mb-0">
+                  <li class="nav-item mb-2">
+                    <a href="mailto:contato@daytradeinvest.com.br" class="nav-link d-inline-block px-0 py-0 fw-medium">contato@daytradeinvest.com.br</a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a href="tel:+551534117268" class="nav-link d-inline-block px-0 py-0 fw-medium">15&nbsp;3411.7268</a>
+                  </li>
+                  <li class="nav-item">
+                    <span class="nav-link d-inline-block px-0 py-0">Av. Rudolf Dafferner, 400 - Boa Vista, Sorocaba - SP, 18085-005<br>Salas 318, 210 e 212</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+          <span class="text-light opacity-50">&copy; Todos os direitos reservados.</span>
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/rellax/rellax.min.js"></script>
+    <script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
